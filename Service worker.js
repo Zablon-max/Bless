@@ -1,5 +1,9 @@
 var CACHE = 'blessings-v1';
-var FILES = ['./index.html','./index.css','./Manifest.json'];
+var FILES = [
+  '/bless/index.html',
+  '/bless/style.css',
+  '/bless/manifest.json'
+];
 self.addEventListener('install', function(e) {
   e.waitUntil(caches.open(CACHE).then(function(c) { return c.addAll(FILES); }));
   self.skipWaiting();

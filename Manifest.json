@@ -2,7 +2,7 @@
   "name": "Bless",
   "short_name": "Blessings",
   "description": "Family app for the Blessings family.",
-  "start_url": "./index.html",
+  "start_url": "/bless/index.html",
   "display": "standalone",
   "background_color": "#0a0700",
   "theme_color": "#1a0a00",

@@ -1,0 +1,17 @@
+{
+  "name": "Blessings",
+  "short_name": "Blessings",
+  "description": "Family app for the Blessings family.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0700",
+  "theme_color": "#1a0a00",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f64f.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blessings</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#1a0a00" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Blessings" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <span class="cross">✝</span>
+      <div>
+        <h1 class="app-name">Blessings</h1>
+        <p class="app-verse">"As for me and my house, we will serve the Lord." — Joshua 24:15</p>
+      </div>
+    </div>
+    <div class="active-member">
+      <span id="active-emoji">👤</span>
+      <span id="active-name">Select name</span>
+    </div>
+  </header>
+
+  <!-- WHO ARE YOU -->
+  <div class="member-bar">
+    <p class="member-label">Who are you?</p>
+    <div class="member-row">
+      <button class="mbtn" data-name="Edward" data-emoji="👨">
+        <span>👨</span><b>Edward</b><small>Father</small>
+      </button>
+      <button class="mbtn" data-name="Roselynne" data-emoji="👩">
+        <span>👩</span><b>Roselynne</b><small>Mother</small>
+      </button>
+      <button class="mbtn" data-name="Mumford" data-emoji="🧑">
+        <span>🧑</span><b>Mumford</b><small>1st Born</small>
+      </button>
+      <button class="mbtn" data-name="Evangeline" data-emoji="👧">
+        <span>👧</span><b>Evangeline</b><small>2nd Born</small>
+      </button>
+      <button class="mbtn" data-name="Clara" data-emoji="👧">
+        <span>👧</span><b>Clara</b><small>3rd Born</small>
+      </button>
+      <button class="mbtn" data-name="Zablon" data-emoji="👦">
+        <span>👦</span><b>Zablon</b><small>Last Born</small>
+      </button>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tab-bar">
+    <button class="tab active" data-tab="notices">📢 Notices</button>
+    <button class="tab" data-tab="chores">✅ Chores</button>
+    <button class="tab" data-tab="budget">💰 Budget</button>
+    <button class="tab" data-tab="prayer">🙏 Prayer</button>
+    <button class="tab" data-tab="events">📅 Events</button>
+    <button class="tab" data-tab="chat">💬 Chat</button>
+  </div>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar" id="status-bar">
+    <span id="status-text">⏳ Connecting to family data...</span>
+  </div>
+
+  <!-- PAGES -->
+  <main class="main">
+
+    <!-- NOTICES -->
+    <div class="page active" id="page-notices">
+      <p class="verse">📖 "Let everything you do be done in love." — 1 Corinthians 16:14</p>
+      <div class="page-header">
+        <h2>📢 Noticeboard</h2>
+        <button class="btn-add" onclick="toggleForm('form-notices')">+ Add</button>
+      </div>
+      <div class="form-box" id="form-notices">
+        <input type="text" id="in-notices" placeholder="Write an announcement..." />
+        <button class="btn-save" onclick="saveNotice()">Post</button>
+      </div>
+      <div id="list-notices"><div class="empty"><span class="empty-icon">⏳</span>Loading...</div></div>
+    </div>
+
+    <!-- CHORES -->
+    <div class="page" id="page-chores">
+      <p class="verse">📖 "Whatever you do, work at it with all your heart." — Colossians 3:23</p>
+      <div class="page-header">
+        <h2>✅ Chores</h2>
+        <button class="btn-add" onclick="toggleForm('form-chores')">+ Add</button>
+      </div>
+      <div class="form-box" id="form-chores">
+        <input type="text" id="in-chore" placeholder="What needs to be done?" />
+        <select id="in-chore-who">
+          <option value="Everyone">Everyone</option>
+          <option value="Edward">Edward</option>
+          <option value="Roselynne">Roselynne</option>
+          <option value="Mumford">Mumford</option>
+          <option value="Evangeline">Evangeline</option>
+          <option value="Clara">Clara</option>
+          <option value="Zablon">Zablon</option>
+        </select>
+        <button class="btn-save" onclick="saveChore()">Add</button>
+      </div>
+      <div id="list-chores"><div class="empty"><span class="empty-icon">⏳</span>Loading...</div></div>
+    </div>
+
+    <!-- BUDGET -->
+    <div class="page" id="page-budget">
+      <p class="verse">📖 "The blessing of the Lord brings wealth, without painful toil." — Proverbs 10:22</p>
+      <div class="page-header">
+        <h2>💰 Budget</h2>
+        <button class="btn-add" onclick="toggleForm('form-budget')">+ Add</button>
+      </div>
+      <div class="totals-row">
+        <div class="total-box"><small>Income</small><strong id="t-income" class="green">Ksh 0</strong></div>
+        <div class="total-box"><small>Expenses</small><strong id="t-expense" class="red">Ksh 0</strong></div>
+        <div class="total-box"><small>Balance</small><strong id="t-balance" class="gold">Ksh 0</strong></div>
+      </div>
+      <div class="form-box" id="form-budget">
+        <input type="text" id="in-bdesc" placeholder="e.g. Groceries, Salary..." />
+        <input type="number" id="in-bamount" placeholder="Amount in Ksh" />
+        <select id="in-btype">
+          <option value="expense">Expense</option>
+          <option value="income">Income</option>
+        </select>
+        <button class="btn-save" onclick="saveBudget()">Save</button>
+      </div>
+      <div id="list-budget"><div class="empty"><span class="empty-icon">⏳</span>Loading...</div></div>
+    </div>
+
+    <!-- PRAYER -->
+    <div class="page" id="page-prayer">
+      <p class="verse">📖 "Do not be anxious about anything, but in every situation, by prayer, present your requests to God." — Philippians 4:6</p>
+      <div class="page-header">
+        <h2>🙏 Prayer Requests</h2>
+        <button class="btn-add" onclick="toggleForm('form-prayer')">+ Add</button>
+      </div>
+      <div class="form-box" id="form-prayer">
+        <input type="text" id="in-prayer" placeholder="Share a prayer request..." />
+        <button class="btn-save" onclick="savePrayer()">Post</button>
+      </div>
+      <div id="list-prayer"><div class="empty"><span class="empty-icon">⏳</span>Loading...</div></div>
+    </div>
+
+    <!-- EVENTS -->
+    <div class="page" id="page-events">
+      <p class="verse">📖 "There is a time for everything, and a season for every activity." — Ecclesiastes 3:1</p>
+      <div class="page-header">
+        <h2>📅 Events</h2>
+        <button class="btn-add" onclick="toggleForm('form-events')">+ Add</button>
+      </div>
+      <div class="form-box" id="form-events">
+        <input type="text" id="in-etitle" placeholder="Event name" />
+        <input type="date" id="in-edate" />
+        <input type="text" id="in-enote" placeholder="Details (optional)" />
+        <button class="btn-save" onclick="saveEvent()">Add</button>
+      </div>
+      <div id="list-events"><div class="empty"><span class="empty-icon">⏳</span>Loading...</div></div>
+    </div>
+
+    <!-- CHAT -->
+    <div class="page" id="page-chat">
+      <p class="verse">📖 "A gentle answer turns away wrath, but a harsh word stirs up anger." — Proverbs 15:1</p>
+      <div class="page-header">
+        <h2>💬 Family Chat</h2>
+      </div>
+      <div class="chat-box" id="chat-box"><div class="empty"><span class="empty-icon">⏳</span>Loading...</div></div>
+      <div class="chat-row">
+        <input type="text" id="in-chat" placeholder="Say something..." />
+        <button class="btn-send" onclick="sendChat()">➤</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FIREBASE SDK -->
+  <script type="module" src="index.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(function() { console.log('SW ready!'); })
+        .catch(function(err) { console.log('SW error:', err); });
+    }
+  </script>
+
+</body>
+</html>

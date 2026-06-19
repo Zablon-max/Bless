@@ -1,7 +1,7 @@
 var CACHE = 'blessings-v1';
 var FILES = [
   '/bless/index.html',
-  '/bless/style.css',
+  '/bless/index.css',
   '/bless/manifest.json'
 ];
 self.addEventListener('install', function(e) {

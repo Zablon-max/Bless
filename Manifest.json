@@ -1,17 +1,29 @@
 {
   "name": "Bless",
   "short_name": "Blessings",
-  "description": "Family app for the Blessings family.",
-  "start_url": "/Bless/index.html",
+  "description": "Family app for the Isadias family.",
+  "start_url": "/Bless/",
+  "scope": "/Bless/",
   "display": "standalone",
   "background_color": "#0a0700",
   "theme_color": "#1a0a00",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f64f.png",
-      "sizes": "72x72",
+      "src": "/Bless/icons/icon-192.png",
+      "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "/Bless/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/Bless/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

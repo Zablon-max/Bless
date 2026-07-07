@@ -1,7 +1,7 @@
 // Blessings Family App — Service Worker
 // Caches the app shell so it loads instantly and works offline
 
-const CACHE_NAME = 'blessings-v2';
+const CACHE_NAME = 'blessings-v3';
 
 // All the files that make up the app shell
 const APP_SHELL = [
